@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import pyautogui
 
 max_diff = 5
 
@@ -44,6 +45,8 @@ while True:
         center_x = int(np.mean(nzero[1]))
         center_y = int(np.mean(nzero[0]))
         print(center_x, center_y)
+
+        pyautogui.moveTo(center_x, center_y)
 
         diff = cv2.cvtColor(diff, cv2.COLOR_GRAY2BGR)
         cv2.line(diff, (center_x-5, center_y), (center_x+5, center_y), (0, 0, 255), 2)
